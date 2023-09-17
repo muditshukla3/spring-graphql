@@ -1,0 +1,24 @@
+type Book {
+    id: ID!
+    title: String
+    pages: Int
+    rating: Rating
+    author: Author
+}
+
+type Author {
+    id: ID!
+    firstName: String
+    lastName: String
+    books: [Book]
+}
+
+type Rating {
+    rating: String
+    star: String
+}
+
+type Query{
+    allBooks: [Book]
+    findOne(id: ID!): Book
+}
