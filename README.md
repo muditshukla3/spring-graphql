@@ -18,17 +18,13 @@ query{
       firstName
       lastName
     }
-    rating{
-      star
-    }
+    rating
   }
   
   findOne(id: 2){
     title
     pages
-    rating{
-      star
-    }
+    rating
   }
 }
 ```
