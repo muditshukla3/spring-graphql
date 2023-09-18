@@ -8,6 +8,7 @@ import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class BookController {
@@ -24,7 +25,8 @@ public class BookController {
     }
 
     @QueryMapping
-    public Book findOne(@Argument Integer id){
-        return bookRepository.findOne(id);
+    public Book findOne(@Argument Long id){
+        Optional<Book> book = bookRepository.findById(id);
+        return book.orElse(null);
     }
 }

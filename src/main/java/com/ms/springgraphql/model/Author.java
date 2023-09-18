@@ -1,9 +1,25 @@
 package com.ms.springgraphql.model;
 
-public record Author(Integer id, String firstName, String lastName) {
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-    public String fullName() {
-        return firstName + " " + lastName;
-    }
+import java.util.List;
+
+@Entity(name = "authors")
+@NoArgsConstructor
+@Getter
+public class Author {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String firstName;
+
+    private String lastName;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    private List<Book> books;
 
 }

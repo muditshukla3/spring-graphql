@@ -2,7 +2,7 @@ type Book {
     id: ID!
     title: String
     pages: Int
-    rating: Rating
+    rating: Float
     author: Author
 }
 
@@ -11,11 +11,6 @@ type Author {
     firstName: String
     lastName: String
     books: [Book]
-}
-
-type Rating {
-    rating: String
-    star: String
 }
 
 type Query{
